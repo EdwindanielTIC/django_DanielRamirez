@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+</head>
+
+
+<body style="background-color: burlywood">
+
+    {% include "head/header.html" %}
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

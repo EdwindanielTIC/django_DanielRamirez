@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2>Informacio de Alumnos TIC</h2>
+<ul>
+    {% for usr in usrs %}
+    <table >
+    <tr>
+        <hr>
+        <strong>Nom:</strong>
+        <strong>Cognom:</strong>
+        <strong>Años:</strong>
+        <strong>email:</strong>
+        <strong>Curs:</strong>
+    </tr>
+
+        <tr>
+        <th>  {{ usr.name }} </th>
+         <th>  {{ usr.surname }} </th>
+         <th>   {{ usr.age }} años  </th>
+         <th>    {{ usr.email }}  </th>
+         <th>   {{ usr.Curs }}  </th>
+        </tr>
+
+
+    </table>
+    {% endfor %}
+</ul>
+{% endblock %}

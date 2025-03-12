@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Informacio professorat TIC</h1>
+{% for profe in professors %}
+<div style="background-color: #d2db86; padding: 10px; margin-bottom: 10px; color: #292626;">
+    <p><strong>Nom:</strong> {{ profe.name }}</p>
+    <p><strong>Cognom:</strong> {{ profe.surname }}</p>
+    <p><strong>Correu electrònic:</strong> {{ profe.email }}</p>
+    <p><strong>Edat:</strong> {{ profe.age }}</p>
+    <p><strong>Gènere:</strong> {{ profe.genero }}</p>
+</div>
+
+{% endfor %}
+<ul>
+    {%for book in books%}
+    <li> Title: <a href="{% url 'book' book.id %}"> {{books.title}}</a></li>
+    <li>Author: {{ books.author}}</li>
+    <li>info: {{books.info}}</li>
+</ul>
+{% endfor %}
+{% endblock %}
