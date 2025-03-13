@@ -18,6 +18,6 @@ class Professors(models.Model):
     surname = models.CharField(max_length=500)
     surname2 = models.CharField(max_length=500)
     email = models.EmailField(max_length=500)
-    curs = models.EmailField(max_length=500)
+    curs = models.CharField(max_length=500)
     tutor = models.CharField(max_length=500)
     moduls_repartits = models.DateField(max_length=500)

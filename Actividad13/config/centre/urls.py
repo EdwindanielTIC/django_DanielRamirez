@@ -5,8 +5,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('professors/', views.professors, name='professors'),
     path('alumnos/', views.alumnos, name='alumnos'),
-    path('books/book/<str:pk>/', views.book, name='book'),
-    path('books/', views.books, name='books'),
-
    path('user-form/', views.user_form, name='user_form'),
+
+    path('professor_form/', views.professor_form, name='professor_form'),
+
 ]

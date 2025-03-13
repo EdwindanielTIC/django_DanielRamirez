@@ -10,7 +10,7 @@
     <p><strong>Cognom2:</strong> {{ profe.surname2 }}</p>
     <p><strong>Correu electrònic:</strong> {{ profe.email }}</p>
     <p><strong>tutor:</strong> {{ profe.tutor }}</p>
-  
+
 </div>
 
 {% endfor %}
@@ -21,4 +21,5 @@
     <li>info: {{books.info}}</li>
 </ul>
 {% endfor %}
+     <a href="{% url 'professor_form' %}"> Afegir Professors</a>
 {% endblock %}
