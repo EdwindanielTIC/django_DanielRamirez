@@ -7,4 +7,6 @@ urlpatterns = [
     path('alumnos/', views.alumnos, name='alumnos'),
     path('books/book/<str:pk>/', views.book, name='book'),
     path('books/', views.books, name='books'),
+
+   path('user-form/', views.user_form, name='user_form'),
 ]

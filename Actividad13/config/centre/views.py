@@ -1,23 +1,24 @@
-from django.shortcuts import render
+from lib2to3.fixes.fix_input import context
+
+from django.db.models.fields import return_None
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+from .forms import AlumneForm
+from .models import Alumne, Professors
+
+
 def index(request):
-    return render(request, 'head/index.html')
+    return render(request, 'index.html')
 
 def professors(request):
-    professors = [
-        {"name": "Davids", "surname": "Ismael", "email": "davids@gmail.com", "age": "20", "genero": "Masculino"},
-        {"name": "Daniel", "surname": "Cubias", "email": "daniel@gmail.com", "age": "25", "genero": "No especificado"},
-        {"name": "Ahmed", "surname": "Aziz", "email": "Ah39aziz@gmail.com", "age": "20", "genero": "Masculino"}
-    ]
-    return render(request, 'professors.html', {'professors': professors})
+        prof = Professors.objects.all()
+        return render(request, 'professors.html', {'professors': prof})
+
+
 
 def alumnos(request):
-    usrs = [
-        {"name": "Ana", "surname": "Perez", "email": "correoAna@gmail.com" ,"Curs": "DAW2B" ,"age": 22},
-        {"name": "Carlos", "surname": "Gomez", "email": "correoCarlos@gmail.com" ,"Curs": "DAW2B", "age": 19},
-        {"name": "Maria", "surname": "Lopez", "email": "correoMaria@gmail.com" ,"Curs": "DAW2B", "age": 23}
-    ]
+    usrs = Alumne.objects.all()
     return render(request, 'alumnos.html', {'usrs': usrs})
 
 bookstore = [
@@ -37,3 +38,18 @@ def book(request, pk):
 
 def books(request):
     return render(request, 'books.html', {'books': bookstore})
+
+
+    # esto hace que me cree los datos directamente, y luego me los devuelva a la pagina web
+def user_form(request):
+
+    form = AlumneForm()
+
+    if request.method == 'POST':
+        form = AlumneForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index.html')
+
+    context = {'form': form}
+    return render(request, 'forms.html', context)

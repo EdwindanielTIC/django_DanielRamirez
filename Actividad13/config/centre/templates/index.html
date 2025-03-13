@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Django</title>
+    <link href="">
+{#<head>#}
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        nav {
+            background-color: #e3f2fd;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: blue;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+    </style>
+{#</head>#}
+
+<nav>
+    <a href="{% url 'index' %}">centre</a>
+  <a href="{% url 'professors' %}">Professors</a>
+  <a href="{% url 'alumnos' %}">Alumnes</a>
+  <a href="{% url 'books' %}">Books</a>
+    
+</nav>
+    
+    
 </head>
+
+
 
 
 <body style="background-color: burlywood">
 
+    <h1>PRIMER PROJECTE: ACT 13</h1>
     {% include "head/header.html" %}
 
     <div>
@@ -15,5 +48,7 @@
         {% endblock %}
     </div>
 
+{#    {% include "head/header.html"%}#}
+   
 </body>
 </html>
