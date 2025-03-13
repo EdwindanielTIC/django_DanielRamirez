@@ -30,5 +30,15 @@ Actualizamos la pagina y vemos el ultimo de todo que es el usuario introducido:
 
 ![image](https://github.com/user-attachments/assets/e2df8cb5-c654-4d5f-8e8f-dd0eb90aee7d)
 
+Para comprobar que realmete he añadido yo la informacion adjunto fotos desde admin: 
+ALUMNES: 
+
+![image](https://github.com/user-attachments/assets/3c86fadd-6db5-462e-92b8-9a6e54999d07)
+
+
+PROFESSORS : 
+
+![image](https://github.com/user-attachments/assets/b0791218-69de-42e3-8c3c-90ded5377f84)
+
 
 
