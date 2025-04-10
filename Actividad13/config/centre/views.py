@@ -43,3 +43,11 @@ def professor_form(request):
 
         context = {'form': form}
         return render(request, 'forms.html', context)
+
+
+def details(request, primarikey):
+    try:
+        alumne = Alumne.objects.get(pk=primarikey)
+    except Alumne.DoesNotExist:
+        alumne = None
+    return render(request, 'details.html', {'alumnos': alumne})
