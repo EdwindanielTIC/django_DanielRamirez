@@ -1,113 +1,37 @@
 {% extends "index.html" %}
 
 {% block content %}
-    
-<p>Detalls de l'Alumne</p>
 
-<h2>Informació de l'alumne</h2>
+{% if alumne %}
+    <div class="info">
+        <h1>Detalles del alumno : {{ alumne.name }} {{ alumne.surname2 }} </h1>
+        <p><strong>ID:</strong> {{ alumne.id }}</p>
+        <p><strong>Nombre:</strong> {{ alumne.name }}</p>
+        <p><strong>Primer Apellido:</strong> {{ alumne.surname }}</p>
+        <p><strong>Segundo Apellido:</strong> {{ alumne.surname2 }}</p>
+        <p><strong>Email:</strong> {{ alumne.email }}</p>
+        <p><strong>Curso:</strong> {{ alumne.curs }}</p>
+        <p><strong>Módulos Matriculados:</strong> {{ alumne.modulsMatriculats }}</p>
+    </div>
+{% else %}
+    <p>No existe un alumno con el ID proporcionado.</p>
+{% endif %}
 
-<!-- Botón para mostrar/ocultar información -->
-<button id="toggleInfoBtn">Mostrar Información</button>
+<a href="{% url 'alumnos' %}">Volver a la lista</a>
 
-<!-- Contenedor de la tabla (inicialmente oculto) -->
-<div id="alumnoInfo" style="display: none;">
-  {% if alumne %}
-    <table>
-      <thead>
-        <tr>
-          <th>Nom</th>
-          <th>Cognom</th>
-            <th>Correu electrònic</th>
-          <th>Correu electrònic</th>
-          <th>Curs</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ alumne.name }}</td>
-          <td>{{ alumne.surname }}</td>
-          <td>{{ alumne.email }}</td>
-          <td>{{ alumne.curs }}</td>
-        </tr>
-      </tbody>
-    </table>
-  {% else %}
-    <p>No hi ha informació de l'alumne disponible.</p>
-  {% endif %}
-</div>
-    
-    <style> 
-    
-    body {
+<style>
+body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: #f4f4f4;
 }
 
-h2 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 16px;
-  color: #555;
-}
-
-/* Estilo para el botón */
-#toggleInfoBtn {
-  background-color: #4CAF50; /* Color verde */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 20px;
-  transition: background-color 0.3s;
-}
-
-#toggleInfoBtn:hover {
-  background-color: #45a049; /* Color verde más oscuro */
-}
-
-/* Estilo para la tabla */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-table th, table td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-table th {
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-/* Estilo para la información de alumno */
-#alumnoInfo {
-  margin-top: 20px;
+.info {
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-/* Estilo de alerta cuando no hay información */
-#alumnoInfo p {
-  color: red;
-  font-weight: bold;
-}
-    </style>
+</style>
 
 {% endblock %}
-
-
-
-    

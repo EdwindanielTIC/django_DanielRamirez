@@ -1,34 +1,44 @@
 {% extends 'index.html' %}
 
+
 {% block content %}
-<h2>Informacio de Alumnos TIC</h2>
-<ul>
-    {% for usr in usrs %}
-    <table >
+
+<h2>Llistat d'Alumnes</h2>
+
+<table>
     <tr>
-        <hr>
-        <strong>Nom:</strong>
-        <strong>Cognom:</strong>
-        <strong>Años:</strong>
-        <strong>email:</strong>
-        <strong>Curs:</strong>
+        <th>Nom</th>
+        <th>Cognom</th>
+        <th>Años</th>
+        <th>Email</th>
+        <th>Curs</th>
+        <th>Acciones</th>
     </tr>
-
-        <tr>
-        <th>  {{ usr.name }} </th>
-         <th>  {{ usr.surname }} </th>
-         <th>   {{ usr.age }} años  </th>
-         <th>    {{ usr.email }}  </th>
-         <th>   {{ usr.Curs }}  </th>
-        </tr>
-
-
-    </table>
-        
-       
+    {% for usr in usrs %}
+    <tr>
+        <td>{{ usr.name }}</td>
+        <td>{{ usr.surname }}</td>
+        <td>{{ usr.age }} años</td>
+        <td>{{ usr.email }}</td>
+        <td>{{ usr.Curs }}</td>
+        <td>
+            <a href="{% url 'details' pk=usr.id %}">
+                <button>Ver detalles</button>
+            </a>
+        </td>
+    </tr>
     {% endfor %}
+</table>
 
- 
+<ul>
+    {%for book in books%}
+    <li> Title: <a href="{% url 'book' book.id %}"> {{books.title}}</a></li>
+    <li>Author: {{ books.author}}</li>
+    <li>info: {{books.info}}</li>
 </ul>
-     <a href="{% url 'user_form' %}"> Afegir alumne</a>
+{% endfor %}
+     <a href="{% url 'user_form' %}"> Afegir alumnes</a>
 {% endblock %}
+
+
+

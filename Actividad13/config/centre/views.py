@@ -8,7 +8,8 @@ from .forms import AlumneForm, ProfessorsForm
 from .models import Alumne, Professors
 
 def index(request):
-    return render(request, 'index.html')
+    usrs = Alumne.objects.all()  # Obtiene todos los alumnos
+    return render(request, 'index.html', {'alumnes': usrs})
 
 def professors(request):
         prof = Professors.objects.all()
@@ -45,9 +46,10 @@ def professor_form(request):
         return render(request, 'forms.html', context)
 
 
-def details(request, primarikey):
+def details(request, pk):
+    alumne_obj = None
     try:
-        alumne = Alumne.objects.get(pk=primarikey)
+        alumne_obj = Alumne.objects.get(pk=pk)  # Busca el alumno por ID
     except Alumne.DoesNotExist:
-        alumne = None
-    return render(request, 'details.html', {'alumnos': alumne})
+        alumne_obj = None
+    return render(request, 'details.html', {'alumne': alumne_obj})

@@ -10,6 +10,7 @@ urlpatterns = [
 
     # path('details/', views.details(), name='professor_form'),
 
-    path('details/<int:primarikey>/', views.details, name='alumne_detalls'),
-
+    path('details/<str:pk>/', views.details, name='details'),
 ]
+
+
