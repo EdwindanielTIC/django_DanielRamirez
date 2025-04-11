@@ -53,3 +53,14 @@ def details(request, pk):
     except Alumne.DoesNotExist:
         alumne_obj = None
     return render(request, 'details.html', {'alumne': alumne_obj})
+
+#
+# Professors
+
+def detailsProfesors(request, pk):
+    profesors_obj = None
+    try:
+        profesors_obj = Professors.objects.get(pk=pk)
+    except Professors.DoesNotExist:
+        profesors_obj = None
+    return render(request, 'detailsProfesors.html', {'professors': profesors_obj})

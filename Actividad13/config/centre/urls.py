@@ -10,7 +10,9 @@ urlpatterns = [
 
     # path('details/', views.details(), name='professor_form'),
 
-    path('details/<str:pk>/', views.details, name='details'),
+    path('details/<int:pk>/', views.details, name='details'),
+    path('professors/<int:pk>/', views.detailsProfesors, name='detailsProfesors'),
 ]
+
 
 

@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+    
+    {% if professors %}
+    <div class="info">
+        <h1>Detalles del professor : {{ professors.name }} {{ professors.surname2 }} </h1>
+        <p><strong>ID:</strong> {{ professors.id }}</p>
+        <p><strong>Nombre:</strong> {{ professors.name }}</p>
+        <p><strong>Primer Apellido:</strong> {{ professors.surname }}</p>
+        <p><strong>Segundo Apellido:</strong> {{ professors.surname2 }}</p>
+        <p><strong>Email:</strong> {{ professors.email }}</p>
+        <p><strong>Curso:</strong> {{ professors.curs }}</p>
+        <p><strong>tutor :</strong> {{ professors.tutor}}</p>
+        <p><strong>Módulos repartits:</strong> {{ professors.moduls_repartits}}</p>
+    </div>
+{% else %}
+    <p>No existe ese profesor con el ID proporcionado.</p>
+{% endif %}   
+    
+    <a href="{% url 'professors' %}">Volver a la lista</a>
+    
+    
+    
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.info {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+</style>
+
+{% endblock %}
